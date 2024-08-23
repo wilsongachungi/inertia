@@ -9,11 +9,13 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Frontend.Home', [
-            // 'canLogin' => Route::has('login'),
-            // 'canRegister' => Route::has('register'),
-            // 'laravelVersion' => Application::VERSION,
-            // 'phpVersion' => PHP_VERSION,
+        return Inertia::render('Frontend/Home');
+    }
+
+    public function about()
+    {
+        return Inertia::render('Frontend/About',[
+            'title' => 'About Us page'
         ]);
     }
 }
