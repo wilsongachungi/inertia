@@ -1,11 +1,12 @@
 <template>
-    <div>
+    <Frontend>
+        <Head title="Contact us"/>
         <h2>This is a Contact us page</h2>
-    </div>
+    </Frontend>
 </template>
 
-<script>
-export default {
 
-}
+<script setup>
+  import Frontend from '@/Layouts/FrontendLayout.vue'
+  import { Head } from '@inertiajs/vue3'
 </script>
