@@ -1,5 +1,7 @@
 <template>
-    <nav class="flex justify-between p-4 bg-grey-200">
+
+    
+    <nav class="flex justify-between p-4 bg-gray-200">
         <div class="text-lg">
             Navbar
         </div>

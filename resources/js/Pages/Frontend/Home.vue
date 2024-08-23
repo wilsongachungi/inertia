@@ -1,13 +1,14 @@
 
 <template>
-    <div>
-        <Navbar/>
+
+    <Frontend>
         <h2>This is a home page</h2>
-    </div>
+    </Frontend>
+
 </template>
 
 <script setup>
-    import Navbar from '@/Components/Navbar.vue';
+  import Frontend from '@/Layouts/FrontendLayout.vue'
 </script>
 
 
