@@ -14,10 +14,12 @@
                         <div class="mb-3">
                             <label for="">Product Name</label>
                             <input type="text" v-model="form.name" class="py-1 w-full" />
+                            <div v-if="errors.name" class="text-red-500">{{ errors.name }}</div>
                         </div>
                         <div class="mb-3">
                             <label for="">Product Price</label>
-                            <input type="text" v-model="form.name" class="py-1 w-full" />
+                            <input type="text" v-model="form.price" class="py-1 w-full" />
+                            <div v-if="errors.price" class="text-red-500">{{ errors.price }}</div>
                         </div>
                         <div class="mb-3">
                             <Link :href="route('product.index')"
@@ -34,6 +36,8 @@
 <script setup>
 import FrontendLayout from '@/layouts/FrontendLayout.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
+
+defineProps({ errors: Object });
 
 const form = useForm({
     name: '',
