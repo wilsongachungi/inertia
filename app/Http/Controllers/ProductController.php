@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use inertia;
+
+use Inertia\Inertia;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return inertia::render('Frontend/Product/index');
+        return Inertia::render('Frontend/Product/Index');
     }
 
     /**
@@ -20,7 +21,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Frontend/Product/Create');
     }
 
     /**
