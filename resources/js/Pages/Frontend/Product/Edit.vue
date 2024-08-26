@@ -28,7 +28,11 @@
                         <div class="mb-3">
                             <Link :href="route('product.index')"
                                 class="bg-red-500 text-white p-3 rounded py-2 px-5  mb-4 inline-block">Back</Link>
-                            <button type="submit" class="bg-blue-500 text-white py-2 px-5 rounded mb-4">Update</button>
+                            <button type="submit" :disabled="form.processing"
+                                class="bg-blue-500 text-white py-2 px-5 rounded mb-4"> <span v-if="form.processing">
+                                    Updating... </span>
+                                     <span v-else>Upadate</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -44,7 +48,7 @@ import { Head, Link, useForm } from '@inertiajs/vue3';
 const props = defineProps({
     errors: Object,
     product: Object,
- });
+});
 
 const form = useForm({
     name: props.product.name,
