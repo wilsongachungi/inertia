@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return Inertia::render('Frontend/Product/Index',[
+        return Inertia::render('Frontend/Product/Index', [
             'products' => $products,
         ]);
     }
@@ -42,16 +42,17 @@ class ProductController extends Controller
             'name' => $request->name,
             'price' => $request->price,
         ]);
-        return redirect()->to('/product')->with('message','Product created Successfully');
-
+        return redirect()->to('/product')->with('message', 'Product created Successfully');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Product $product)
     {
-        //
+        return Inertia::render('Frontend/Product/Show', [
+            'product' => $product
+        ]);
     }
 
     /**
@@ -59,7 +60,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return Inertia::render('Frontend/Product/Edit',[
+        return Inertia::render('Frontend/Product/Edit', [
             'product' => $product
         ]);
     }
@@ -78,7 +79,7 @@ class ProductController extends Controller
             'name' => $request->name,
             'price' => $request->price,
         ]);
-        return redirect()->to('/product')->with('message','Product updated Successfully');
+        return redirect()->to('/product')->with('message', 'Product updated Successfully');
     }
 
     /**

@@ -24,7 +24,9 @@
                         <div class="mb-3">
                             <Link :href="route('product.index')"
                                 class="bg-red-500 text-white p-3 rounded py-2 px-5  mb-4 inline-block">Back</Link>
-                            <button type="submit" class="bg-blue-500 text-white py-2 px-5 rounded mb-4">Save</button>
+                            <button type="submit" :disabled="form.processing" class="bg-blue-500 text-white py-2 px-5 rounded mb-4"><span v-if="form.processing">
+                               Saving... </span>
+                                 <span v-else>Save</span></button>
                         </div>
                     </div>
                 </div>
