@@ -14,7 +14,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Frontend/Product/Index');
+        $products = Product::all();
+        return Inertia::render('Frontend/Product/Index',[
+            'products' => $products,
+        ]);
     }
 
     /**
@@ -54,17 +57,28 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Product $product)
     {
-        //
+        return Inertia::render('Frontend/Product/Edit',[
+            'product' => $product
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|integer',
+        ]);
+
+        $product->update([
+            'name' => $request->name,
+            'price' => $request->price,
+        ]);
+        return redirect()->to('/product')->with('message','Product updated Successfully');
     }
 
     /**
