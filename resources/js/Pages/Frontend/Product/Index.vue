@@ -29,7 +29,7 @@
                                 <td>
                                     <Link :href="route('product.show', item.id)" class="px-2 py-1 text-sm bg-blue-300 text-dark me-2  rounded inline-block">Show</Link>
                                     <Link :href="route('product.edit', item.id)" class="px-2 py-1 bg-green-500 text-white me-2  rounded inline-block">Edit</Link>
-                                    <button type="submit" class="px-2 py-1 bg-red-500 text-white me-2  rounded inline-block">Delete</button>
+                                    <button type="submit" class="px-2 py-1 bg-red-500 text-white me-2  rounded inline-block" @click="deleteProduct(item.id)">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -40,9 +40,17 @@
 
 <script setup>
 import FrontendLayout from '@/layouts/FrontendLayout.vue';
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, useForm } from '@inertiajs/vue3';
 
 defineProps({
     products: Array
 })
+
+const form = useForm({});
+
+const deleteProduct = (productId) => {
+    if(confirm('Are you sure you want to delete this data?')){
+        form.delete(route('product.destroy',productId));
+    }
+}
 </script>
